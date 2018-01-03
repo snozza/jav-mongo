@@ -1,12 +1,24 @@
+version '1.0-SNAPSHOT'
+
 apply plugin: 'java'
 apply plugin: 'jacoco'
 
-version = '1.0'
+sourceCompatibility = 1.9
 
 repositories {
     mavenCentral()
 }
 
+test {
+    testLogging {
+        exceptionFormat = 'full'
+        showStandardStreams = true
+    }
+}
+
 dependencies {
-    testCompile 'junit:junit:4.11'
+    compile 'org.jongo:jongo:1.1'
+    compile 'org.mongodb:mongo-java-driver:2.+'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-all:1.+'
 }
