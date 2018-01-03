@@ -13,10 +13,15 @@ public class TicTacToeCollection {
 
     public TicTacToeCollection() throws UnknownHostException {
        DB db = new MongoClient().getDB("tic-tac-toe");
-       mongoCollection = new Jongo(db).getCollection("bla");
+       mongoCollection = new Jongo(db).getCollection("game");
+    }
+
+    public void saveMove(TicTacToeBean bean) {
+        getMongoCollection().save(bean);
     }
 
     protected MongoCollection getMongoCollection() {
         return mongoCollection;
     }
+
 }
