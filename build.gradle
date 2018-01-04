@@ -13,7 +13,12 @@ test {
     testLogging {
         exceptionFormat = 'full'
         showStandardStreams = true
+        include '**/*Spec.class'
     }
+}
+
+task testInteg(type: Test) {
+    include '**/*Integ.class'
 }
 
 dependencies {
